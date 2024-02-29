@@ -7,6 +7,20 @@
         </div>
 
         <div class="col-sm-6 mx-auto">
+            <!-- Success Message -->
+            <?php if (isset($_SESSION['success'])) : ?>
+                <div class="alert alert-success text-center">
+                    <?php echo $_SESSION['success']; ?>
+                    <?php unset($_SESSION['success']) ?>
+                </div>
+            <?php endif; ?>
+            <!-- Error Message -->
+            <?php if (isset($_SESSION['error'])) : ?>
+                <div class="alert alert-danger text-center">
+                    <?php echo $_SESSION['error']; ?>
+                    <?php unset($_SESSION['error']) ?>
+                </div>
+            <?php endif; ?>
             <div class="border p-5 my-3">
                 <form action="handler/register.php" method="POST">
                     <div class="form-group">
@@ -22,7 +36,7 @@
                         <input type="password" class="form-control" name="password" placeholder="Your Password">
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="submit" class="btn btn-block btn-primary" value="Login">
+                        <input type="submit" name="submit" value="Register" class="btn btn-block btn-primary" value="Login">
                     </div>
                 </form>
             </div>
