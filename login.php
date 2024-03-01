@@ -7,6 +7,14 @@
             <h1 class="text-center display-4 border my-5 p-2"> Login</h1>
         </div>
         <div class="col-sm-6 mx-auto">
+            <!-- Error Message -->
+            <?php if(isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger text-center">
+                    <?php echo $_SESSION['error']; ?>
+                    <?php unset($_SESSION['error']); ?>
+                </div>
+
+                <?php endif; ?>
             <div class="border p-5 my-3">
                 <form action="handler/login.php" method="POST">
                     <div class="form-group">
