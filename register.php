@@ -1,5 +1,11 @@
 <?php include('inc/header.php');  ?>
 
+<?php
+if (isset($_SESSION['user_name'])) {
+    header("location:index.php");
+}
+?>
+
 <div class="container">
     <div class="row">
         <div class="col-12 ">

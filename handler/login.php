@@ -5,8 +5,9 @@ require '../inc/db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
 
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password = filter_var($_POST['password'],FILTER_SANITIZE_STRING);
+    foreach ($_POST as $key => $value) {
+        $$key = $value;
+    }
 
     //Check if email & pass in the database or not
     $sql = "SELECT * FROM users WHERE email = ?";

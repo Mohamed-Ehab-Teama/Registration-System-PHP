@@ -1,5 +1,11 @@
 <?php include('inc/header.php');  ?>
 
+<?php
+if (isset($_SESSION['user_name'])) {
+    header("location:index.php");
+}
+?>
+
 
 <div class="container">
     <div class="row">
@@ -8,13 +14,13 @@
         </div>
         <div class="col-sm-6 mx-auto">
             <!-- Error Message -->
-            <?php if(isset($_SESSION['error'])): ?>
+            <?php if (isset($_SESSION['error'])) : ?>
                 <div class="alert alert-danger text-center">
                     <?php echo $_SESSION['error']; ?>
                     <?php unset($_SESSION['error']); ?>
                 </div>
 
-                <?php endif; ?>
+            <?php endif; ?>
             <div class="border p-5 my-3">
                 <form action="handler/login.php" method="POST">
                     <div class="form-group">

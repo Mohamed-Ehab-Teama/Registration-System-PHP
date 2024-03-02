@@ -32,12 +32,14 @@
                     <a class="nav-link" href="show-data.php">Show Data</a>
                 </li>
 
+                    <?php if(!isset($_SESSION['user_name'])): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="register.php">Register</a>
                     </li>
+                    <?php else: ?>
                     <li class="nav-item">
                         <a class="nav-link" href="change-password.php">Change Password</a>
                     </li>
@@ -47,6 +49,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                     </li>
+                    <?php endif; ?>
             </ul>
 
         </div>

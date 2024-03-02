@@ -5,10 +5,10 @@ require '../inc/db.php';
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
 
     // Sanitzation
-    $name = filter_var($_POST['name'],FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
-    $mobile = filter_var($_POST['mobile'],FILTER_SANITIZE_STRING);
-    $password = password_hash(filter_var($_POST['password'],FILTER_SANITIZE_STRING),PASSWORD_DEFAULT);
+    $name = trim(htmlspecialchars(htmlentities($_POST['name']))) ;
+    $email = trim(htmlspecialchars(htmlentities($_POST['email'])));
+    $mobile = trim(htmlspecialchars(htmlentities($_POST['mobile'])));
+    $password = password_hash(trim(htmlspecialchars(htmlentities($_POST['password']))),PASSWORD_DEFAULT);
 
 
     //insert data into database:
